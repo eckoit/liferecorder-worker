@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var upload = require('../lib/upload');
+var watchFolder = require('../lib/watch-folder');
+
+
+
+var attach = process.argv[2] || '/Volumes/SANSA CLIP/';
+var folder = process.argv[3] || '/Volumes/SANSA CLIP/RECORD/VOICE/';
+var couch_url = process.argv[3] || 'http://localhost:5984/my-path2';
+var deleteSuccess = process.argv[4] || false;
+
+console.log('watching', attach, 'upload to', couch_url, 'delete', deleteSuccess);
+
+watchFolder.start(attach);
+watchFolder.on('attached', function(f){
+    console.log('connect!', f);
+    upload(folder, couch_url, deleteSuccess, function(err){
+         console.log('done!');
+     });
+});
+
+watchFolder.on('detached', function(){
+    console.log('dis - connect!');
+});

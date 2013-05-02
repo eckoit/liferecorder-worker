@@ -1,0 +1,26 @@
+{
+  "name": "liferecorder-worker",
+  "version": "0.0.0",
+  "description": "A couchdb-worker to upload from a liferecorder to couchdb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["CouchDB", "attachments", "couchdb-worker", "worker"],
+  "homepage": "https://github.com/eckoit/liferecorder-worker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eckoit/liferecorder-worker"
+  },
+  "author": "Ryan Ramage",
+  "license": "BSD",
+  "dependencies": {
+    "node-ffprobe": "~1.2.2",
+    "watch": "~0.7.0",
+    "moment": "~2.0.0",
+    "couchr": "0.0.13",
+    "async": "~0.2.8",
+    "underscore": "~1.4.4",
+    "request": "~2.21.0"
+  }
+}
