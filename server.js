@@ -7,19 +7,23 @@ var watchFolder = require('./lib/watch-folder');
 
 
 
-var couch_url = process.env.COUCH_URL || 'http://localhost:5984/my-path2';
+var couch_url = process.env.COUCH_URL || 'http://localhost:5984/my-path';
 var deleteSuccess =  true;
 
 var info = guess();
 watchFolder.start(info.attach);
 
 watchFolder.on('attached', function(f){
+    console.log('connected');
     upload(info.folder, couch_url, deleteSuccess, function(err){
+	if (err) return console.log('error: ', err);
         console.log('sync complete');
     });
 });
 
-watchFolder.on('detached', function(){});
+watchFolder.on('detached', function(){
+  console.log('disconnected');
+});
 
 
 function guess() {
