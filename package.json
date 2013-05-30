@@ -1,6 +1,6 @@
 {
   "name": "liferecorder-worker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A couchdb-worker to upload from a liferecorder to couchdb",
   "main": "index.js",
   "scripts": {
